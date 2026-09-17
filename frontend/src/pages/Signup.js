@@ -48,8 +48,6 @@ function Signup() {
 
       const result = await response.json();
 
-      console.log(result);
-
       const { success, message } = result;
 
       if (success) {
