@@ -35,7 +35,7 @@ function Login() {
     }
 
     try {
-      const url = "http://localhost:8080/login";
+      const url = `${process.env.REACT_APP_API_URL}/login`;
 
       const response = await fetch(url, {
         method: "POST",

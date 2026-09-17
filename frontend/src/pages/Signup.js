@@ -36,7 +36,7 @@ function Signup() {
     }
 
     try {
-      const url = "http://localhost:8080/signup";
+      const url = `${process.env.REACT_APP_API_URL}/signup`;
 
       const response = await fetch(url, {
         method: "POST",

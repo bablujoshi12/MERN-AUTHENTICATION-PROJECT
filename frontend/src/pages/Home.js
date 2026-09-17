@@ -26,7 +26,7 @@ function Home() {
 
   const fetchProducts = async () => {
     try {
-      const url = "http://localhost:8080/products";
+      const url = `${process.env.REACT_APP_API_URL}/products`;
 
       const response = await fetch(url, {
         method: "GET",
