@@ -37,8 +37,6 @@ function Home() {
 
       const result = await response.json();
 
-      console.log(result);
-
       if (!response.ok) {
         handleError(result.message || "Failed to fetch products");
         return;
