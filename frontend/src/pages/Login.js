@@ -47,8 +47,6 @@ function Login() {
 
       const result = await response.json();
 
-      console.log(result);
-
       const { success, message, token, username } = result;
 
       if (success) {
