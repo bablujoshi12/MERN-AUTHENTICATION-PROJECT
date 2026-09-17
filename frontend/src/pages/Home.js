@@ -25,6 +25,7 @@ function Home() {
   };
 
   const fetchProducts = async () => {
+    console.log("🔥 fetchProducts CALLED");
     try {
       const url = `${process.env.REACT_APP_API_URL}/products`;
 
@@ -36,6 +37,20 @@ function Home() {
       });
 
       const result = await response.json();
+
+      if (response.status === 401) {
+        console.log("🚨 401 HANDLER CALLED");
+        handleError(result.message);
+
+        localStorage.removeItem("token");
+        localStorage.removeItem("loggedInUser");
+
+        setTimeout(() => {
+          navigate("/login");
+        }, 1000);
+
+        return;
+      }
 
       if (!response.ok) {
         handleError(result.message || "Failed to fetch products");
